@@ -35,10 +35,10 @@ class Model extends \Illuminate\Database\Eloquent\Model {
 
 	function getUrlAttribute() {
 		if ( $this->lp )
-			return config('nova-media-classic.url', '') . substr($this->path, 7);
+			return config('nova-media-classic.url', '').tenacny()->tenant->id . substr($this->path, 7);
 
 		if ( !$this->private )
-			return config('nova-media-classic.url', '') . $this->path;
+			return config('nova-media-classic.url', '').tenacny()->tenant->id . $this->path;
 
 		if ( Route::has('nml-private-file') )
 			return route('nml-private-file', [ 'id' => $this->id, 'img_size' => request('img_size') ]);

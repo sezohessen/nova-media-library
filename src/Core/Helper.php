@@ -9,7 +9,7 @@ class Helper {
 
 	static function storage()
 	{
-		return Storage::disk(config('nova-media-library.disk', 'public'));
+		return Storage::disk(config('nova-media-classic.disk', 'public'));
 	}
 
 	static function directories()
@@ -17,7 +17,7 @@ class Helper {
 		$len = strlen(substr(self::folder(), 1));
 		$array = [];
 
-		foreach (self::storage()->allDirectories(config('nova-media-library.folder')) as $item) {
+		foreach (self::storage()->allDirectories(config('nova-media-classic.folder')) as $item) {
 			if ( 'nml_temp' == $item ) continue;
 			$path = str_replace('/', '.', substr($item, $len));
 			if ( $path ) data_set($array, $path, 0);
@@ -33,7 +33,7 @@ class Helper {
 
 	static function folder($path = '')
 	{
-		return self::replace('/'. (string)config('nova-media-library.folder', '') .'/'. $path);
+		return self::replace('/'. (string)config('nova-media-classic.folder', '') .'/'. $path);
 	}
 
 	static function size($bytes)
@@ -52,11 +52,11 @@ class Helper {
 
 	static function isPrivate($folder)
 	{
-		$disk = config('nova-media-library.disk');
+		$disk = config('nova-media-classic.disk');
 		$private = false;
 
 		if ( 's3' == $disk )
-			$private = config('nova-media-library.private') ?? false;
+			$private = config('nova-media-classic.private') ?? false;
 		else if ( 'local' == $disk )
 			$private = '/public/' != substr(self::folder($folder), 0, 8);
 
@@ -80,7 +80,7 @@ class Helper {
 	static function localPublic($folder, $private)
 	{
 		return (
-			'local' == config('nova-media-library.disk') and
+			'local' == config('nova-media-classic.disk') and
 			!$private and
 			'/public/' == substr(self::folder($folder), 0, 8)
 		);

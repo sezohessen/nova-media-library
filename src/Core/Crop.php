@@ -16,7 +16,7 @@ class Crop {
 	private $bytes = 0;
 
 	public function __construct($form) {
-		$this->config = config('nova-media-library.resize');
+		$this->config = config('nova-media-classic.resize');
 		if ( !$this->config['front_crop'] or !class_exists('\Intervention\Image\ImageManager')) return;
 
 		$this->form = $form;
@@ -79,7 +79,7 @@ class Crop {
 
 	static function createSizes($item)
 	{
-		$config = config('nova-media-library.resize');
+		$config = config('nova-media-classic.resize');
 		if (
 			'image' != data_get($item, 'options.mime')
 		     or !is_array($config)

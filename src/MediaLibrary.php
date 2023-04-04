@@ -42,7 +42,7 @@ class MediaLibrary extends Field
 	    }
 
 	    $this->preview = array_key_exists('nmlPreview', $this->meta)
-		    ? $this->meta['nmlPreview'] : config('nova-media-library.resize.preview');
+		    ? $this->meta['nmlPreview'] : config('nova-media-classic.resize.preview');
 
 	    if ( is_array($value) ) {
 		    $this->value = collect($this->value)->map(function ($item) {
@@ -63,7 +63,7 @@ class MediaLibrary extends Field
 			if ( !$value or 'null' == $value ) $value = null;
 			if ( isset($this->meta['nmlArray']) ) {
 				$value = json_decode($request[$requestAttribute], true);
-				if ( is_array($value) and true != config('nova-media-library.duplicates') )
+				if ( is_array($value) and true != config('nova-media-classic.duplicates') )
 					$value = array_unique($value);
 			}
 			$model->{$attribute} = $value;

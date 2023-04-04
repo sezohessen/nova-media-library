@@ -23,7 +23,7 @@ class Tool {
 
 	function get(GetFr $fr)
 	{
-		$preview = config('nova-media-library.resize.preview');
+		$preview = config('nova-media-classic.resize.preview');
 
 		$data = (new Model)->search();
 		$data['array'] = collect($data['array'])->map(function ($item) use ($preview) {
@@ -118,7 +118,7 @@ class Tool {
 		$item->title = request('title');
 		$img_sizes = data_get($item->options, 'img_sizes', []);
 
-		if ( request()->has('private') and 's3' === config('nova-media-library.disk') ) {
+		if ( request()->has('private') and 's3' === config('nova-media-classic.disk') ) {
 			$item->private = (boolean)request('private');
 			$visibility = Helper::visibility($item->private);
 
@@ -128,7 +128,7 @@ class Tool {
 		}
 
 		$folder = request('folder');
-		if ( $folder and 'folders' === config('nova-media-library.store') and $folder !== $item->folder ) {
+		if ( $folder and 'folders' === config('nova-media-classic.store') and $folder !== $item->folder ) {
 			$private = Helper::isPrivate($folder);
 			$array = [ [$item->path, Helper::folder($folder . $item->name)] ];
 

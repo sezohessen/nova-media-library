@@ -25,7 +25,7 @@ class Upload {
 	private $bytes = 0;
 
 	function __construct($file) {
-		$this->config = config('nova-media-library');
+		$this->config = config('nova-media-classic');
 		$this->file = $file;
 		$this->extension = strtolower($file->getClientOriginalExtension());
 
@@ -36,7 +36,7 @@ class Upload {
 
 	function setType()
 	{
-		$types = config('nova-media-library.types');
+		$types = config('nova-media-classic.types');
 		if ( !is_array($types) ) return false;
 
 		foreach ($types as $label => $array) {
@@ -62,7 +62,7 @@ class Upload {
 
 	function setFolder($folder = null)
 	{
-		if ( 'folders' != config('nova-media-library.store') )
+		if ( 'folders' != config('nova-media-classic.store') )
 			$this->folder = $this->date();
 		elseif ( is_string($folder) )
 			$this->folder = Helper::replace('/'. $folder .'/');
@@ -181,7 +181,7 @@ class Upload {
 	private function date()
 	{
 		$folder = '/';
-		$by_date = config('nova-media-library.by_date');
+		$by_date = config('nova-media-classic.by_date');
 
 		if ( $by_date ) {
 			$date = preg_replace('/[^Ymd_\-\/]/', '', $by_date);

@@ -44,7 +44,7 @@ After upgrading to version 1.x, you need to remove the old table from the databa
 ### Install
 
 ```
-composer require classic-o/nova-media-classic
+composer require classic-o/nova-media-library
 
 php artisan vendor:publish --provider="ClassicO\NovaMediaLibrary\ToolServiceProvider"
 
@@ -55,7 +55,7 @@ php artisan storage:link
 
 ### Configuration
 
-[See configuration file](https://github.com/classic-o/nova-media-classic/blob/master/config/nova-media-classic.php)
+[See configuration file](https://github.com/classic-o/nova-media-library/blob/master/config/nova-media-library.php)
 
 ### Usage
 
@@ -215,20 +215,20 @@ return API::getPrivateFile($file->path, request('img_size'))
 
 ### Localization
 
-To translate this tool another language, you need to add the translation file `/resources/lang/vendor/nova-media-classic/{lang}.json` by adding phrases from [en.json](https://github.com/classic-o/nova-media-classic/tree/master/resources/lang/en.json)
+To translate this tool another language, you need to add the translation file `/resources/lang/vendor/nova-media-library/{lang}.json` by adding phrases from [en.json](https://github.com/classic-o/nova-media-library/tree/master/resources/lang/en.json)
 
 ### Screenshots
 
-![Media Library](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_1.png)
+![Media Library](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_1.png)
 
-![Media Library](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_2.png)
+![Media Library](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_2.png)
 
-![Details](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_3.png)
+![Details](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_3.png)
 
-![Crop Image](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_4.png)
+![Crop Image](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_4.png)
 
-![Index Field](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_5.png)
+![Index Field](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_5.png)
 
-![Form Field](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/screenshot_6.png)
+![Form Field](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/screenshot_6.png)
 
-![Record](https://raw.githubusercontent.com/classic-o/nova-media-classic/master/docs/record.gif)
+![Record](https://raw.githubusercontent.com/classic-o/nova-media-library/master/docs/record.gif)

@@ -15,14 +15,14 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-media-classic');
-        $this->loadJsonTranslationsFrom(resource_path('lang/vendor/nova-media-classic'));
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-media-library');
+        $this->loadJsonTranslationsFrom(resource_path('lang/vendor/nova-media-library'));
         $this->loadMigrationsFrom(__DIR__.'/../database/');
 
 	    $this->publishes([
 		    __DIR__.'/../config/' => config_path(),
 		    __DIR__.'/../database/' => base_path('/database/migrations'),
-		    __DIR__.'/../resources/lang' => resource_path('lang/vendor/nova-media-classic'),
+		    __DIR__.'/../resources/lang' => resource_path('lang/vendor/nova-media-library'),
 	    ], 'config-nml');
 
         $this->app->booted(function () {
@@ -42,7 +42,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/nova-media-classic')
+                ->prefix('nova-vendor/nova-media-library')
                 ->group(__DIR__.'/../routes/api.php');
     }
 

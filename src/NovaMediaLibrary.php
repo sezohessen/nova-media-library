@@ -15,8 +15,8 @@ class NovaMediaLibrary extends Tool
      */
     public function boot()
     {
-	    Nova::script('nova-media-classic', __DIR__.'/../dist/js/tool.js');
-	    Nova::style('nova-media-classic', __DIR__.'/../dist/css/tool.css');
+	    Nova::script('nova-media-library', __DIR__.'/../dist/js/tool.js');
+	    Nova::style('nova-media-library', __DIR__.'/../dist/css/tool.css');
 
 	    Nova::provideToScript([ 'novaMediaLibrary' => $this->config() ]);
     }
@@ -28,7 +28,7 @@ class NovaMediaLibrary extends Tool
      */
     public function renderNavigation()
     {
-        return view('nova-media-classic::navigation');
+        return view('nova-media-library::navigation');
     }
 
 
@@ -67,7 +67,7 @@ class NovaMediaLibrary extends Tool
 
 	private function lang()
 	{
-		$file = resource_path('lang/vendor/nova-media-classic/'.app()->getLocale().'.json');
+		$file = resource_path('lang/vendor/nova-media-library/'.app()->getLocale().'.json');
 		if ( !is_readable($file)) return [];
 
 		$json = json_decode(file_get_contents($file));
